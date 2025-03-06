@@ -17,7 +17,7 @@ echo "DRY RUN=$DRY_RUN"
 echo "SINGLE_BRANCH=$SINGLE_BRANCH"
 echo "SINGLE_BRANCH_NAME=$SINGLE_BRANCH_NAME"
 
-if [ "SINGLE_BRANCH" = "true" ]
+if [ "$SINGLE_BRANCH" = "true" ]
 then
     echo "INFO: Mirroring a single branch..."
     git clone --branch "$SINGLE_BRANCH_NAME" --single-branch "$SOURCE_REPO" "$SOURCE_DIR" && cd "$SOURCE_DIR"
