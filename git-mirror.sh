@@ -17,6 +17,7 @@ echo "DRY RUN=$DRY_RUN"
 
 if [ "SINGLE_BRANCH" = "true" ]
 then
+    echo "INFO: Mirroring a single branch..."
     git clone --branch "$SINGLE_BRANCH_NAME" --single-branch "$SOURCE_REPO" "$SOURCE_DIR" && cd "$SOURCE_DIR"
     git fetch --prune origin
     if [ "$DRY_RUN" = "true" ]
@@ -27,6 +28,7 @@ then
         git push --mirror "$DESTINATION_REPO"
     fi
 else
+    echo "INFO: Mirroring all branches..."
     git clone --mirror "$SOURCE_REPO" "$SOURCE_DIR" && cd "$SOURCE_DIR"
     git remote set-url --push origin "$DESTINATION_REPO"
     git fetch -p origin
