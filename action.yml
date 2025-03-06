@@ -16,6 +16,14 @@ inputs:
     description: 'Execute a dry run.'
     required: false
     default: 'false'
+  single-branch:
+    description: 'Mirror only a single branch specified by the single-branch-name parameter.'
+    required: false
+    default: 'false'
+  single-branch-name:
+    description: 'Mirror only a single branch specified by the single-branch-name parameter.'
+    required: false
+    default: 'main'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,3 +31,5 @@ runs:
     - ${{ inputs.source-repo }}
     - ${{ inputs.destination-repo }}
     - ${{ inputs.dry-run }}
+    - ${{ inputs.single-branch }}
+    - ${{ inputs.single-branch-name }}
